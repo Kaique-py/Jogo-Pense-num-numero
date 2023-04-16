@@ -34,10 +34,12 @@ class ChuteNumero:
                         elif int(self.valor_do_chute) < self.valor_aleatorio:
                             print("Chute um valor mais alto.")
                             break
-                        elif self.valor_do_chute == self.valor_aleatorio:
+                        if int(self.valor_do_chute) == self.valor_aleatorio:
                             self.tentar_novamente = False
                             print("Parabéns! Acertou!!!")
+                            sg.WINDOW_CLOSED
                             break
+                            
         except:
             print("Digite apenas números.")
             self.Iniciar()
