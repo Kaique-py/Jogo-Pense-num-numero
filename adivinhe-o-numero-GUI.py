@@ -42,6 +42,7 @@ class ChuteNumero:
                             break
                     if self.evento == sg.WIN_CLOSED:
                         break
+            self.janela.close()
                 
         except:
             print("Digite apenas números.")
