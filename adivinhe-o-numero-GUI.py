@@ -13,28 +13,30 @@ class ChuteNumero:
         layout = [
             [sg.Text('Seu chute', size=(20,0))],
             [sg.Input(size=(18,0),key='ValorChute')],
+            [sg.Button("Chutar!")],
             [sg.Output(size=(20,10))]
         ]
         #Criação da janela propriamente dita
-        self.janela = sg.Window("Adivinhe o número!", finalize=True)
-       
+        self.janela = sg.Window("Adivinhe o número!", finalize=False)
+        
+        self.GerarNumeroAleatorio()       
         try:
             while True:
                 #Fazer com que essa janela receba valores:
                 self.evento, self.valores = self.janela.Read()
-                self.valor_do_chute = self.valores['ValorChute']
-                self.GerarNumeroAleatorio()
-                self.PedirEscolhaUsuario()
-                while self.tentar_novamente == True:
-                    if int(self.valor_do_chute) > self.valor_aleatorio:
-                        print("Chute um valor mais baixo.")
-                        self.PedirEscolhaUsuario()
-                    elif int(self.valor_do_chute) < self.valor_aleatorio:
-                        print("Chute um valor mais alto.")
-                        self.PedirEscolhaUsuario()
-                    elif self.valor_do_chute == self.valor_aleatorio:
-                        self.tentar_novamente = False
-                        print("Parabéns! Acertou!!!")
+                
+                if self.evento == 'Chutar!':
+                    self.valor_do_chute = self.valores['ValorChute']
+                    while self.tentar_novamente == True:
+                        if int(self.valor_do_chute) > self.valor_aleatorio:
+                            print("Chute um valor mais baixo.")
+                            self.PedirEscolhaUsuario()
+                        elif int(self.valor_do_chute) < self.valor_aleatorio:
+                            print("Chute um valor mais alto.")
+                            self.PedirEscolhaUsuario()
+                        elif self.valor_do_chute == self.valor_aleatorio:
+                            self.tentar_novamente = False
+                            print("Parabéns! Acertou!!!")
         except:
             print("Digite apenas números.")
             self.Iniciar()
