@@ -21,24 +21,24 @@ class ChuteNumero:
         
         self.GerarNumeroAleatorio()       
         try:
+            #Fazer com que essa janela receba valores:
+            self.evento, self.valores = self.janela.Read()
             while True:
-                #Fazer com que essa janela receba valores:
-                self.evento, self.valores = self.janela.Read()
                 #Fazer algo com esses valores:
                 if self.evento == 'Chutar!':
                     self.valor_do_chute = self.valores['ValorChute']
                     while self.tentar_novamente == True:
                         if int(self.valor_do_chute) > self.valor_aleatorio:
                             print("Chute um valor mais baixo.")
+                            self.evento, self.valores = self.janela.Read()
                             break
                         elif int(self.valor_do_chute) < self.valor_aleatorio:
                             print("Chute um valor mais alto.")
+                            self.evento, self.valores = self.janela.Read()
                             break
                         if int(self.valor_do_chute) == self.valor_aleatorio:
                             self.tentar_novamente = False
                             print("Parabéns! Acertou!!!")
-                            sg.WIN_CLOSED
-                            self.janela.close_destroys_window()
                             break
                             
                             
