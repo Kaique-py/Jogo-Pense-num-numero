@@ -25,6 +25,8 @@ class ChuteNumero:
                 #Fazer com que essa janela receba valores:
                 if self.evento == sg.WIN_CLOSED:
                     print("Até logo!")
+                    self.janela.close()
+                    break
                 else:
                     self.evento, self.valores = self.janela.Read()
                     #Fazer algo com esses valores:
@@ -33,18 +35,15 @@ class ChuteNumero:
                         while self.tentar_novamente == True:
                             if int(self.valor_do_chute) > self.valor_aleatorio:
                                 print("Chute um valor mais baixo.")
-                                self.evento, self.valores = self.janela.Read()
                                 break
                             if int(self.valor_do_chute) < self.valor_aleatorio:
                                 print("Chute um valor mais alto.")
-                                self.evento, self.valores = self.janela.Read()
                                 break
                             if int(self.valor_do_chute) == self.valor_aleatorio:
                                 print("Parabéns! Acertou!!!")
                                 self.tentar_novamente = False
                                 break
-                            if self.evento == sg.WIN_CLOSED:
-                                break
+                self.janela.close()
             
                 
         except:
