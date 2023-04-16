@@ -23,27 +23,27 @@ class ChuteNumero:
         try:
             while True:
                 #Fazer com que essa janela receba valores:
+                self.evento, self.valores = self.janela.Read()
                 if self.evento == sg.WIN_CLOSED:
                     print("Até logo!")
                     self.janela.close()
                     break
-                else:
-                    self.evento, self.valores = self.janela.Read()
-                    #Fazer algo com esses valores:
-                    if self.evento == 'Chutar!':
-                        self.valor_do_chute = self.valores['ValorChute']
-                        while self.tentar_novamente == True:
-                            if int(self.valor_do_chute) > self.valor_aleatorio:
-                                print("Chute um valor mais baixo.")
-                                break
-                            if int(self.valor_do_chute) < self.valor_aleatorio:
-                                print("Chute um valor mais alto.")
-                                break
-                            if int(self.valor_do_chute) == self.valor_aleatorio:
-                                print("Parabéns! Acertou!!!")
-                                self.tentar_novamente = False
-                                break
-                self.janela.close()
+                #Fazer algo com esses valores:
+                if self.evento == 'Chutar!':
+                    self.valor_do_chute = self.valores['ValorChute']
+                    while self.tentar_novamente == True:
+                        if int(self.valor_do_chute) > self.valor_aleatorio:
+                            print("Chute um valor mais baixo.")
+                            break
+                        if int(self.valor_do_chute) < self.valor_aleatorio:
+                            print("Chute um valor mais alto.")
+                            break
+                        if int(self.valor_do_chute) == self.valor_aleatorio:
+                            print("Parabéns! Acertou!!!")
+                            self.tentar_novamente = False
+                            self.janela.close()
+                            break
+                            
             
                 
         except:
