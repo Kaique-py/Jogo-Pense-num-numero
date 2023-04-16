@@ -21,9 +21,9 @@ class ChuteNumero:
         
         self.GerarNumeroAleatorio()       
         try:
-            #Fazer com que essa janela receba valores:
-            self.evento, self.valores = self.janela.Read()
             while True:
+                #Fazer com que essa janela receba valores:
+                self.evento, self.valores = self.janela.Read()
                 #Fazer algo com esses valores:
                 if self.evento == 'Chutar!':
                     self.valor_do_chute = self.valores['ValorChute']
