@@ -38,8 +38,9 @@ class ChuteNumero:
                             self.tentar_novamente = False
                             print("Parabéns! Acertou!!!")
                             sg.WIN_CLOSED
+                            self.janela.close_destroys_window()
                             break
-                        self.janela.close_destroys_window()
+                            
                             
         except:
             print("Digite apenas números.")
