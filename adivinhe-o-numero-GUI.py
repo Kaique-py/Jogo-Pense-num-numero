@@ -17,7 +17,7 @@ class ChuteNumero:
             [sg.Output(size=(20,10))]
         ]
         #Criação da janela propriamente dita
-        self.janela = sg.Window("Adivinhe o número!", finalize=False)
+        self.janela = sg.Window("Adivinhe o número!", layout=layout)
         
         self.GerarNumeroAleatorio()       
         try:
