@@ -34,8 +34,9 @@ class ChuteNumero:
             elif int(self.valor_do_chute) < self.valor_aleatorio:
                 print("Chute um valor mais alto.")
                 self.PedirEscolhaUsuario()
-            self.tentar_novamente = False
-            print("Parabéns! Acertou!!!")
+            elif self.valor_do_chute == self.valor_aleatorio:
+                self.tentar_novamente = False
+                print("Parabéns! Acertou!!!")
 
     def PedirEscolhaUsuario(self):
         self.valor_do_chute = int(input("Tente adivinhar o número que estou pensando: "))
