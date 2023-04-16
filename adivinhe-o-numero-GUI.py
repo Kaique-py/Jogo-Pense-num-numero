@@ -37,8 +37,8 @@ class ChuteNumero:
                             self.evento, self.valores = self.janela.Read()
                             break
                         if int(self.valor_do_chute) == self.valor_aleatorio:
-                            self.tentar_novamente = False
                             print("Parabéns! Acertou!!!")
+                            self.tentar_novamente = False
                             break
                             
                             
