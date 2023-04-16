@@ -25,19 +25,22 @@ class ChuteNumero:
         self.tentar_novamente = True
 
     def Iniciar(self): #Após isso, sempre criamos um método para executar as ações daquela Classe.
-        self.GerarNumeroAleatorio()
-        self.PedirEscolhaUsuario()
-        while self.tentar_novamente == True:
-            if int(self.valor_do_chute) > self.valor_aleatorio:
-                print("Chute um valor mais baixo.")
-                self.PedirEscolhaUsuario()
-            elif int(self.valor_do_chute) < self.valor_aleatorio:
-                print("Chute um valor mais alto.")
-                self.PedirEscolhaUsuario()
-            elif self.valor_do_chute == self.valor_aleatorio:
-                self.tentar_novamente = False
-                print("Parabéns! Acertou!!!")
-
+        try:
+            self.GerarNumeroAleatorio()
+            self.PedirEscolhaUsuario()
+            while self.tentar_novamente == True:
+                if int(self.valor_do_chute) > self.valor_aleatorio:
+                    print("Chute um valor mais baixo.")
+                    self.PedirEscolhaUsuario()
+                elif int(self.valor_do_chute) < self.valor_aleatorio:
+                    print("Chute um valor mais alto.")
+                    self.PedirEscolhaUsuario()
+                elif self.valor_do_chute == self.valor_aleatorio:
+                    self.tentar_novamente = False
+                    print("Parabéns! Acertou!!!")
+        except:
+            print("Digite apenas números.")
+            self.Iniciar()
     def PedirEscolhaUsuario(self):
         self.valor_do_chute = int(input("Tente adivinhar o número que estou pensando: "))
 
