@@ -1,5 +1,6 @@
 import random
 import PySimpleGUI as sg
+import time
 
 class ChuteNumero:
     def __init__(self): #Sempre criamos uma função/método para 'iniciar' a Classe, com os atributos desta classe.
@@ -41,7 +42,7 @@ class ChuteNumero:
                         if int(self.valor_do_chute) == self.valor_aleatorio:
                             print("Parabéns! Acertou!!!")
                             self.tentar_novamente = False
-                            self.janela.close()
+                            print("Nosso jogo foi muito bom! Até a próxima!!!")
                             break
                             
             
