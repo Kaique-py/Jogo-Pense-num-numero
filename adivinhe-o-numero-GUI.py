@@ -40,9 +40,9 @@ class ChuteNumero:
                             print("Parabéns! Acertou!!!")
                             self.tentar_novamente = False
                             break
-                    if self.evento == sg.WIN_CLOSED:
-                        break
-            self.janela.close()
+                        if self.evento == sg.WIN_CLOSED:
+                            break
+            
                 
         except:
             print("Digite apenas números.")
