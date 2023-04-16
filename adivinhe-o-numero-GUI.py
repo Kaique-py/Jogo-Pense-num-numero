@@ -32,13 +32,13 @@ class ChuteNumero:
                             print("Chute um valor mais baixo.")
                             self.evento, self.valores = self.janela.Read()
                             break
-                        elif int(self.valor_do_chute) < self.valor_aleatorio:
+                        if int(self.valor_do_chute) < self.valor_aleatorio:
                             print("Chute um valor mais alto.")
                             self.evento, self.valores = self.janela.Read()
                             break
                         if int(self.valor_do_chute) == self.valor_aleatorio:
                             print("Parabéns! Acertou!!!")
-                            self.tentar_novamente = False
+                            #self.tentar_novamente = False
                             break
                         if self.evento == sg.WIN_CLOSED:
                             break              
