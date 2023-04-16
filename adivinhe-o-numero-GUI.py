@@ -24,21 +24,20 @@ class ChuteNumero:
             while True:
                 #Fazer com que essa janela receba valores:
                 self.evento, self.valores = self.janela.Read()
-                
+                #Fazer algo com esses valores:
                 if self.evento == 'Chutar!':
                     self.valor_do_chute = self.valores['ValorChute']
                     while self.tentar_novamente == True:
                         if int(self.valor_do_chute) > self.valor_aleatorio:
                             print("Chute um valor mais baixo.")
-                            self.LerValoresDaTela()
-                            self.valor_do_chute = self.valores['ValorChute']
+                            break
                         elif int(self.valor_do_chute) < self.valor_aleatorio:
                             print("Chute um valor mais alto.")
-                            self.LerValoresDaTela()
-                            self.valor_do_chute = self.valores['ValorChute']
+                            break
                         elif self.valor_do_chute == self.valor_aleatorio:
                             self.tentar_novamente = False
                             print("Parabéns! Acertou!!!")
+                            break
         except:
             print("Digite apenas números.")
             self.Iniciar()
@@ -46,8 +45,6 @@ class ChuteNumero:
     def GerarNumeroAleatorio(self):
         self.valor_aleatorio = random.randint(self.valor_min, self.valor_max)
 
-    def LerValoresDaTela(self):
-        self.evento, self.valores = self.janela.Read()
 
 #Lembra sempre de que, ao criar uma Classe, temos que instanciar ela!!!
 numero = ChuteNumero() #Aqui eu instanciei a Classe ChumeNumero
