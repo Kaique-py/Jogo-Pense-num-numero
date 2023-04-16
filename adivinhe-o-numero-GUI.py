@@ -11,8 +11,8 @@ class ChuteNumero:
         #Vamos criar a janela que queremos que o jogo apareça
         #Layout dessa janela
         layout = [
-            [sg.Text('Seu chute', size=(200,0))],
-            [sg.Input(size=(180,0),key='ValorChute')],
+            [sg.Text('Seu chute', size=(100,0))],
+            [sg.Input(size=(50,0),key='ValorChute')],
             [sg.Button("Chutar!")],
             [sg.Output(size=(20,10))]
         ]
@@ -39,10 +39,9 @@ class ChuteNumero:
                         if int(self.valor_do_chute) == self.valor_aleatorio:
                             print("Parabéns! Acertou!!!")
                             self.tentar_novamente = False
-
                             break
-                            
-                            
+                        if self.evento == sg.WIN_CLOSED:
+                            break              
         except:
             print("Digite apenas números.")
             self.Iniciar()
