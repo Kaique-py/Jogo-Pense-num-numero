@@ -37,8 +37,9 @@ class ChuteNumero:
                         if int(self.valor_do_chute) == self.valor_aleatorio:
                             self.tentar_novamente = False
                             print("Parabéns! Acertou!!!")
+                            sg.WIN_CLOSED
                             break
-                        self.evento, self.valores = sg.WIN_CLOSED
+                        self.janela.close_destroys_window()
                             
         except:
             print("Digite apenas números.")
